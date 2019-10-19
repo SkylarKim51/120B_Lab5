@@ -12,7 +12,7 @@
 #include "simAVRHeader.h"
 #endif
 
-enum states{ init, start, oneAdd, pressAdd, releaseAdd, oneMinus, pressMinus, releaseMinus, pressReset, releaseReset} state;
+enum states {init, start, oneAdd, pressAdd, releaseAdd, oneMinus, pressMinus, releaseMinus, pressReset, releaseReset} state;
 unsigned char tempA;
 unsigned char count;
 
@@ -178,15 +178,13 @@ void stateMachine(){
 	}
 }		
 
- 
-
 int main() { 
 	DDRA = 0x00;	PORTA = 0xFF;
 	DDRC = 0xFF;	PORTC = 0x00;
 
 	state = init;
     while (1) {
-	tempA  = PINA;
+	tempA = PINA;
 	stateMachine();
 	PORTC = count;	
     }
